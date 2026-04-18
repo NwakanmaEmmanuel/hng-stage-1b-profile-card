@@ -1,10 +1,10 @@
 # HNG Stage 1B — Testable Profile Card
 
 ## 🔗 Live Demo
-[View Project](https://your-live-url-here)
+[View Project](https://hng-stage-1b-profile-card-liard.vercel.app/)
 
 ## 📁 GitHub Repo
-[View Repository](https://github.com/your-username/your-repo-name)
+[View Repository](https://github.com/NwakanmaEmmanuel/hng-stage-1b-profile-card)
 
 ---
 
@@ -17,7 +17,7 @@ A clean, accessible, responsive Profile Card built with plain HTML, CSS, and Jav
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/NwakanmaEmmanuel/hng-stage-1b-profile-card.git
    ```
 2. Navigate into the folder:
    ```bash
