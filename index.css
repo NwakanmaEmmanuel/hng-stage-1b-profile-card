@@ -1,0 +1,290 @@
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Variables ── */
+:root {
+  --bg:           #f0f4f8;
+  --card:         #ffffff;
+  --border:       #e2e8f0;
+  --text:         #1a202c;
+  --text-2:       #4a5568;
+  --text-3:       #718096;
+  --accent:       #3b82f6;
+  --accent-bg:    #eff6ff;
+  --accent-dark:  #1d4ed8;
+  --green:        #059669;
+  --green-bg:     #ecfdf5;
+  --red:          #dc2626;
+  --red-bg:       #fef2f2;
+  --shadow:       0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --radius:       16px;
+  --radius-sm:    10px;
+  --radius-pill:  999px;
+  --font:         'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Body ── */
+body {
+  background: var(--bg);
+  font-family: var(--font);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-color: #d3c9c9;
+  background-size: 32px 32px;
+}
+
+/* ── Card ── */
+article[data-testid="test-profile-card"] {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  animation: cardIn 0.4s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* ── Avatar section (left column) ── */
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+  border-right: 1px solid var(--border);
+  min-width: 160px;
+  gap: 10px;
+}
+
+img[data-testid="test-user-avatar"] {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(59,130,246,0.2);
+  display: block;
+}
+
+.avatar-section figcaption {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid #bfdbfe;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Card body (right column) ── */
+.card-body {
+  flex: 1;
+  padding: 1.75rem 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* ── Header: name + epoch time ── */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+h2[data-testid="test-user-name"] {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+time[data-testid="test-user-time"] {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  color: var(--text-3);
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* ── Bio ── */
+p[data-testid="test-user-bio"] {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-2);
+  word-wrap: break-word;
+}
+
+/* ── Social links ── */
+
+ul[data-testid="test-user-social-links"] {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+ul[data-testid="test-user-social-links"] a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  color: var(--text-2);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+ul[data-testid="test-user-social-links"] a:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+ul[data-testid="test-user-social-links"] a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+ul[data-testid="test-user-social-links"] svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Hobbies + Dislikes ── */
+.lists-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.list-section {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.list-section h3 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+ul[data-testid="test-user-hobbies"],
+ul[data-testid="test-user-dislikes"] {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+ul[data-testid="test-user-hobbies"] li,
+ul[data-testid="test-user-dislikes"] li {
+  font-size: 12px;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+ul[data-testid="test-user-hobbies"] li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+ul[data-testid="test-user-dislikes"] li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+
+/* Tablet */
+@media (max-width: 600px) {
+  article[data-testid="test-profile-card"] {
+    flex-direction: column;
+  }
+
+  .avatar-section {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    min-width: unset;
+    justify-content: flex-start;
+  }
+
+  img[data-testid="test-user-avatar"] {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .lists-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 400px) {
+  .lists-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  h2[data-testid="test-user-name"] {
+    font-size: 18px;
+  }
+}
