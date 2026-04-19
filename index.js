@@ -1,5 +1,4 @@
 // ── Epoch time display ──
-// Updates every 1000ms as required by spec
 const epochEl = document.getElementById('epochTime');
 
 function updateTime() {
